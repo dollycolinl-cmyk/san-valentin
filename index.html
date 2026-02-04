@@ -14,22 +14,20 @@
       justify-content: center;
       height: 100vh;
       margin: 0;
-      overflow: hidden;
       text-align: center;
+      overflow: hidden;
     }
 
     h1 {
       color: #b30059;
       line-height: 1.5;
-      z-index: 2;
     }
 
     .buttons {
-      margin-top: 20px;
       position: relative;
-      width: 320px;
-      height: 220px;
-      z-index: 2;
+      width: 300px;
+      height: 200px;
+      margin-top: 20px;
     }
 
     button {
@@ -41,30 +39,18 @@
       position: absolute;
     }
 
-    #yes {
+    #yesBtn {
       background-color: #ff4d88;
       color: white;
       left: 40px;
-      top: 120px;
+      top: 100px;
     }
 
-    #no {
+    #noBtn {
       background-color: #666;
       color: white;
-      left: 190px;
-      top: 120px;
-    }
-
-    .heart {
-      position: absolute;
-      font-size: 20px;
-      animation: fall 6s linear infinite;
-      opacity: 0.8;
-    }
-
-    @keyframes fall {
-      0% { transform: translateY(-10vh); }
-      100% { transform: translateY(110vh); }
+      left: 170px;
+      top: 100px;
     }
   </style>
 </head>
@@ -76,23 +62,53 @@
     ¿Quieres ser mi San Valentín? 💖
   </h1>
 
-  <div class="buttons" id="box">
-    <button id="yes">Sí 💘</button>
-    <button id="no">No 😢</button>
+  <div class="buttons">
+    <button id="yesBtn">Sí 💘</button>
+    <button id="noBtn">No 😢</button>
   </div>
 
-  <!-- 🎶 NUEVA CANCIÓN -->
-  <audio id="music" loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" type="audio/mpeg">
-  </audio>
-
   <script>
-    const noBtn = document.getElementById("no");
-    const yesBtn = document.getElementById("yes");
-    const box = document.getElementById("box");
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+
+    // Botón NO huye
+    noBtn.addEventListener("mouseover", moveNo);
+    noBtn.addEventListener("click", moveNo);
 
     function moveNo() {
-      const maxX = box.clientWidth - noBtn.offsetWidth;
-      const maxY = box.clientHeight - noBtn.offsetHeight;
-      noBtn.style.left = Math.random() * maxX + "px";
-      noBtn.style.top
+      const x = Math.random() * (window.innerWidth - 120);
+      const y = Math.random() * (window.innerHeight - 120);
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    // Pantalla final
+    yesBtn.addEventListener("click", () => {
+      document.body.innerHTML = `
+        <div style="
+          display:flex;
+          flex-direction:column;
+          align-items:center;
+          justify-content:center;
+          height:100vh;
+          background:pink;
+          text-align:center;
+        ">
+          <img src="nosotros.jpg" style="
+            max-width:80%;
+            border-radius:20px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.3);
+            margin-bottom:20px;
+          ">
+          <h1 style="color:#b30059;">
+            🥰 Te amo 🥰<br>
+            Nuestro segundo San Valentín juntos 💖
+          </h1>
+        </div>
+      `;
+    });
+  </script>
+
+</body>
+</html>
+
