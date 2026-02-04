@@ -7,10 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       font-family: Arial, sans-serif;
       background: pink;
@@ -21,22 +17,12 @@
 
     h1 {
       color: #b30059;
-      margin-bottom: 20px;
-      font-size: 24px;
+      font-size: 26px;
       line-height: 1.3;
-    }
-
-    img {
-      width: 100%;
-      max-width: 420px;
-      height: auto;
-      border-radius: 20px;
-      margin: 20px auto;
-      display: block;
+      margin-bottom: 30px;
     }
 
     .buttons {
-      margin-top: 20px;
       position: relative;
       height: 120px;
     }
@@ -62,26 +48,55 @@
       left: 60%;
       top: 0;
     }
+
+    /* PANTALLA FINAL (oculta al inicio) */
+    #final {
+      display: none;
+    }
+
+    #final img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 20px;
+      margin-top: 20px;
+    }
+
+    #final p {
+      font-size: 18px;
+      margin-top: 20px;
+    }
   </style>
 </head>
 
 <body>
 
-  <h1>
-    💖 Para: Emmanuel Josafath Castro Cantú <br>
-    ¿Quieres ser mi San Valentín? 💖
-  </h1>
+  <!-- PANTALLA 1 -->
+  <div id="inicio">
+    <h1>
+      💖 Para: Emmanuel Josafath Castro Cantú <br>
+      ¿Quieres ser mi San Valentín? 💖
+    </h1>
 
-  <img src="nosotros.jpg" alt="Nosotros">
+    <div class="buttons">
+      <button id="yes">Sí 💘</button>
+      <button id="no">No 😢</button>
+    </div>
+  </div>
 
-  <div class="buttons">
-    <button id="yes">Sí 💘</button>
-    <button id="no">No 😢</button>
+  <!-- PANTALLA 2 -->
+  <div id="final">
+    <h1>💘 Sabía que dirías que sí 💘</h1>
+    <img src="nosotros.jpg" alt="Nosotros">
+    <p>
+      Te amo muchísimo ❤️ <br>
+      Gracias por ser mi persona.
+    </p>
   </div>
 
   <script>
     const noBtn = document.getElementById("no");
     const container = document.querySelector(".buttons");
+    const yesBtn = document.getElementById("yes");
 
     function moveNo() {
       const maxX = container.clientWidth - noBtn.offsetWidth;
@@ -97,13 +112,15 @@
     noBtn.addEventListener("mouseenter", moveNo);
     noBtn.addEventListener("touchstart", moveNo);
 
-    document.getElementById("yes").addEventListener("click", () => {
-      alert("🥰 Gracias por otro san valentin juntos, amo uestra relación,lo qué hemos costruido juntos, lo qué somos cuándo estamos juntos y te amo a ti. 💖");
+    yesBtn.addEventListener("click", () => {
+      document.getElementById("inicio").style.display = "none";
+      document.getElementById("final").style.display = "block";
     });
   </script>
 
 </body>
 </html>
+
 
 
 
