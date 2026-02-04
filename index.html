@@ -4,42 +4,39 @@
   <meta charset="UTF-8">
   <title>Be My Valentine 💘</title>
 
-  <!-- 🔑 CLAVE PARA QUE NO PIDa ZOOM -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
       background: pink;
       margin: 0;
       padding: 20px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       text-align: center;
-      box-sizing: border-box;
     }
 
     h1 {
       color: #b30059;
-      margin-bottom: 15px;
-      font-size: clamp(20px, 5vw, 28px);
+      margin-bottom: 20px;
+      font-size: 24px;
     }
 
     img {
-      max-width: 90%;
-      max-height: 40vh;
-      object-fit: contain;
+      width: 100%;
+      max-width: 400px;
+      height: auto;
       border-radius: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
     .buttons {
       position: relative;
-      width: 100%;
-      height: 150px;
+      height: 120px;
+      margin-bottom: 40px;
     }
 
     button {
@@ -53,13 +50,15 @@
     #yes {
       background-color: #ff4d88;
       color: white;
-      margin-right: 10px;
+      margin-right: 20px;
     }
 
     #no {
       background-color: #666;
       color: white;
       position: absolute;
+      left: 60%;
+      top: 0;
     }
   </style>
 </head>
@@ -83,8 +82,8 @@
     const container = document.querySelector(".buttons");
 
     function moveNo() {
-      const maxX = container.clientWidth - noBtn.offsetWidth;
-      const maxY = container.clientHeight - noBtn.offsetHeight;
+      const maxX = container.offsetWidth - noBtn.offsetWidth;
+      const maxY = container.offsetHeight - noBtn.offsetHeight;
 
       const x = Math.random() * maxX;
       const y = Math.random() * maxY;
@@ -97,11 +96,12 @@
     noBtn.addEventListener("touchstart", moveNo);
 
     document.getElementById("yes").addEventListener("click", () => {
-      alert("🥰 Nuestro segundo San Valentín juntos, amo todo lo qué hemos contruido y avanzado juntos y te amo a ti 💖");
+      alert("🥰 Te amo, Gracias por otro San Valentín juntos, amo nuestra relación, lo qué somos cuándo estamos juntos y te amo a ti. Gracias por ser el hombre qué eres 💖");
     });
   </script>
 
 </body>
 </html>
+
 
 
