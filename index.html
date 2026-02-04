@@ -7,50 +7,43 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #ffb6c1, #ffc0cb);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
+      background: pink;
       text-align: center;
-      overflow: hidden;
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
     }
 
     h1 {
       color: #b30059;
-      line-height: 1.5;
+      margin-bottom: 20px;
     }
 
-    .buttons {
-      position: relative;
-      width: 300px;
-      height: 200px;
-      margin-top: 20px;
+    img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 20px;
+      margin-bottom: 20px;
     }
 
     button {
-      padding: 12px 20px;
+      padding: 14px 22px;
       font-size: 16px;
       border: none;
       border-radius: 12px;
       cursor: pointer;
-      position: absolute;
+      margin: 10px;
     }
 
-    #yesBtn {
+    #yes {
       background-color: #ff4d88;
       color: white;
-      left: 40px;
-      top: 100px;
     }
 
-    #noBtn {
+    #no {
       background-color: #666;
       color: white;
-      left: 170px;
-      top: 100px;
+      position: absolute;
     }
   </style>
 </head>
@@ -62,53 +55,34 @@
     ¿Quieres ser mi San Valentín? 💖
   </h1>
 
-  <div class="buttons">
-    <button id="yesBtn">Sí 💘</button>
-    <button id="noBtn">No 😢</button>
-  </div>
+  <!-- FOTO -->
+  <img src="nosotros.jpg" alt="Nosotros">
+
+  <br>
+
+  <button id="yes">Sí 💘</button>
+  <button id="no">No 😢</button>
 
   <script>
-    const noBtn = document.getElementById("noBtn");
-    const yesBtn = document.getElementById("yesBtn");
-
-    // Botón NO huye
-    noBtn.addEventListener("mouseover", moveNo);
-    noBtn.addEventListener("click", moveNo);
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
 
     function moveNo() {
-      const x = Math.random() * (window.innerWidth - 120);
-      const y = Math.random() * (window.innerHeight - 120);
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
       noBtn.style.left = x + "px";
       noBtn.style.top = y + "px";
     }
 
-    // Pantalla final
+    noBtn.addEventListener("mouseenter", moveNo);
+    noBtn.addEventListener("touchstart", moveNo);
+
     yesBtn.addEventListener("click", () => {
-      document.body.innerHTML = `
-        <div style="
-          display:flex;
-          flex-direction:column;
-          align-items:center;
-          justify-content:center;
-          height:100vh;
-          background:pink;
-          text-align:center;
-        ">
-          <img src="nosotros.jpg" style="
-            max-width:80%;
-            border-radius:20px;
-            box-shadow:0 10px 25px rgba(0,0,0,0.3);
-            margin-bottom:20px;
-          ">
-          <h1 style="color:#b30059;">
-            🥰 Te amo 🥰<br>
-            Nuestro segundo San Valentín juntos 💖
-          </h1>
-        </div>
-      `;
+      alert("🥰 Te amo, nuestro segundo San Valentín juntos 💖");
     });
   </script>
 
 </body>
 </html>
+
 
