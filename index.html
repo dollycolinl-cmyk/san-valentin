@@ -15,7 +15,7 @@
       font-family: Arial, sans-serif;
       background: pink;
       margin: 0;
-      padding: 20px;
+      padding: 30px 20px;
       text-align: center;
     }
 
@@ -23,20 +23,22 @@
       color: #b30059;
       margin-bottom: 20px;
       font-size: 24px;
+      line-height: 1.3;
     }
 
     img {
       width: 100%;
-      max-width: 400px;
+      max-width: 420px;
       height: auto;
       border-radius: 20px;
-      margin-bottom: 25px;
+      margin: 20px auto;
+      display: block;
     }
 
     .buttons {
+      margin-top: 20px;
       position: relative;
       height: 120px;
-      margin-bottom: 40px;
     }
 
     button {
@@ -82,8 +84,8 @@
     const container = document.querySelector(".buttons");
 
     function moveNo() {
-      const maxX = container.offsetWidth - noBtn.offsetWidth;
-      const maxY = container.offsetHeight - noBtn.offsetHeight;
+      const maxX = container.clientWidth - noBtn.offsetWidth;
+      const maxY = container.clientHeight - noBtn.offsetHeight;
 
       const x = Math.random() * maxX;
       const y = Math.random() * maxY;
@@ -96,12 +98,13 @@
     noBtn.addEventListener("touchstart", moveNo);
 
     document.getElementById("yes").addEventListener("click", () => {
-      alert("🥰 Te amo, Gracias por otro San Valentín juntos, amo nuestra relación, lo qué somos cuándo estamos juntos y te amo a ti. Gracias por ser el hombre qué eres 💖");
+      alert("🥰 Gracias por otro san valentin juntos, amo uestra relación,lo qué hemos costruido juntos, lo qué somos cuándo estamos juntos y te amo a ti. 💖");
     });
   </script>
 
 </body>
 </html>
+
 
 
 
